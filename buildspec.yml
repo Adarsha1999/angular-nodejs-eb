@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+    variables:
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: "{{s3_bucket_url}}"
+        BUILD_FOLDER: "dist"
+phases:
+  install:
+    runtime-versions:
+        nodejs: 12
+    commands:
+        - echo Installing source NPM dependencies...
+        - cd /Myapp
+        - npm install
+        - npm install gulp
+        - npm install -g @angular/cli
+
+  build:
+    commands:
+        - echo Build started 
+        - ng build --prod
+        - cd ..
+        - npm run gulp
+        
+
+artifacts:
+    files:
+        - '**/*'
+    type: zip
+    base-directory: 'dist*'
+    discard-paths: yes
