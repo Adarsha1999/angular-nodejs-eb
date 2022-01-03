@@ -13,7 +13,7 @@ phases:
         - echo Installing source NPM dependencies...
         - cd my-app
         - npm install
-        - npm install gulp
+        - npm install -g gulp
         - npm install -g @angular/cli
 
   build:
