@@ -11,10 +11,9 @@ phases:
         nodejs: 12
     commands:
         - echo Installing source NPM dependencies...
-        - npm install -g gulp
-        - cd my-app
         - npm install
         - npm install -g @angular/cli
+        - npm install -g gulp
 
   build:
     commands:
